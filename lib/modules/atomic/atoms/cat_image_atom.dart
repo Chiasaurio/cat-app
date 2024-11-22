@@ -6,8 +6,11 @@ class CatImageAtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      url,
+    return Hero(
+      tag: url,
+      child: Image.network(
+        url,
+      ),
     );
   }
 }
