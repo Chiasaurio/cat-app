@@ -28,7 +28,13 @@ class MainPageCatsModule extends StatelessWidget {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final item = snapshot.data![index];
-              return CatPreviewMolecule(url: item.url ?? "");
+              return CatPreviewMolecule(
+                url: item.url ?? "",
+                country: item.breeds![0].origin ?? "",
+                name: item.breeds![0].name ?? "",
+                intelligence: item.breeds![0].intelligence?.toString() ?? "",
+                race: item.breeds![0].altNames ?? "",
+              );
             },
           );
         });
