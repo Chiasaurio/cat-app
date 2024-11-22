@@ -6,25 +6,31 @@ class CatPreviewMolecule extends StatelessWidget {
   final String race;
   final String intelligence;
   final String country;
-  const CatPreviewMolecule(
-      {super.key,
-      required this.url,
-      required this.name,
-      required this.race,
-      required this.intelligence,
-      required this.country});
+  final Function() onPressed;
+  const CatPreviewMolecule({
+    super.key,
+    required this.url,
+    required this.name,
+    required this.race,
+    required this.intelligence,
+    required this.country,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.all(18),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _head(),
-          CatImageAtom(url: url),
-          _bottom(),
-        ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Card(
+        margin: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _head(),
+            CatImageAtom(url: url),
+            _bottom(),
+          ],
+        ),
       ),
     );
   }

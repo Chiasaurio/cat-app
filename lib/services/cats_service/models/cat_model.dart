@@ -1,14 +1,14 @@
 part of '_lib.dart';
 
 @JsonSerializable()
-class Cat {
+class CatModel {
   final String? id;
   final int? width;
   final int? height;
   final String? url;
-  final List<Breed>? breeds;
+  final List<BreedModel>? breeds;
 
-  Cat({
+  CatModel({
     this.id,
     this.width,
     this.height,
@@ -16,7 +16,7 @@ class Cat {
     this.breeds,
   });
 
-  factory Cat.fromJson(Map<String, dynamic> json) => _$CatFromJson(json);
+  factory CatModel.fromJson(Map<String, dynamic> json) => _$CatFromJson(json);
 
   Map<String, dynamic> toJson() => _$CatToJson(this);
 }

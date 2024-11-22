@@ -1,8 +1,8 @@
 part of '_lib.dart';
 
 @JsonSerializable()
-class Breed {
-  final Weight? weight;
+class BreedModel {
+  final WeightModel? weight;
   final String? id;
   final String? name;
   final String? temperament;
@@ -39,7 +39,7 @@ class Breed {
   final int? shortLegs;
   final int? hypoallergenic;
   final String? referenceImageId;
-  Breed(
+  BreedModel(
     this.cfaUrl,
     this.vetstreetUrl,
     this.vcahospitalsUrl,
@@ -79,7 +79,8 @@ class Breed {
     this.wikipediaUrl,
   });
 
-  factory Breed.fromJson(Map<String, dynamic> json) => _$BreedFromJson(json);
+  factory BreedModel.fromJson(Map<String, dynamic> json) =>
+      _$BreedFromJson(json);
 
   Map<String, dynamic> toJson() => _$BreedToJson(this);
 }

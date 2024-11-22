@@ -1,16 +1,17 @@
 part of '_lib.dart';
 
 @JsonSerializable()
-class Weight {
+class WeightModel {
   final String? imperial;
   final String? metric;
 
-  const Weight({
+  const WeightModel({
     this.imperial = "",
     this.metric = "",
   });
 
-  factory Weight.fromJson(Map<String, dynamic> json) => _$WeightFromJson(json);
+  factory WeightModel.fromJson(Map<String, dynamic> json) =>
+      _$WeightFromJson(json);
 
   Map<String, dynamic> toJson() => _$WeightToJson(this);
 }

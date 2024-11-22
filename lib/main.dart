@@ -1,5 +1,6 @@
-import 'package:cat_app/modules/cats/main_page_cats_module.dart';
 import 'package:flutter/material.dart';
+
+import 'modules/cats/_lib.dart';
 
 void main() {
   runApp(const MyApp());

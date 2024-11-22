@@ -1,8 +1,4 @@
-import 'package:cat_app/modules/atomic/_package.dart';
-import 'package:cat_app/services/cats_service/cats_service.dart';
-import 'package:flutter/material.dart';
-
-import '../../services/cats_service/models/_lib.dart';
+part of '_lib.dart';
 
 class MainPageCatsModule extends StatelessWidget {
   const MainPageCatsModule({super.key});
@@ -19,7 +15,7 @@ class MainPageCatsModule extends StatelessWidget {
   }
 
   _builder() {
-    return FutureBuilder<List<Cat>>(
+    return FutureBuilder<List<CatModel>>(
         future: CatsService.get(),
         builder: (context, snapshot) {
           if (snapshot.data == null) return _loading();
@@ -34,6 +30,12 @@ class MainPageCatsModule extends StatelessWidget {
                 name: item.breeds![0].name ?? "",
                 intelligence: item.breeds![0].intelligence?.toString() ?? "",
                 race: item.breeds![0].altNames ?? "",
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          DescriptionPageCatsModule(cat: item),
+                    )),
               );
             },
           );

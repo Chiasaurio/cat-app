@@ -4,7 +4,7 @@ import 'package:cat_app/services/cats_service/models/_lib.dart';
 import 'package:http/http.dart' as http;
 
 class CatsService {
-  static Future<List<Cat>> get({int limit = 10}) async {
+  static Future<List<CatModel>> get({int limit = 10}) async {
     var url = Uri.https(
       'api.thecatapi.com',
       '/v1/images/search',
@@ -22,7 +22,7 @@ class CatsService {
     var decodedResponse = jsonDecode(response.body) as List<dynamic>;
     final images = decodedResponse
         .map(
-          (element) => Cat.fromJson(element),
+          (element) => CatModel.fromJson(element),
         )
         .toList();
     return images;

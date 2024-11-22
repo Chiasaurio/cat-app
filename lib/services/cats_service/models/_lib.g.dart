@@ -6,17 +6,17 @@ part of '_lib.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Cat _$CatFromJson(Map<String, dynamic> json) => Cat(
+CatModel _$CatFromJson(Map<String, dynamic> json) => CatModel(
       id: json['id'] as String?,
       width: (json['width'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
       breeds: (json['breeds'] as List<dynamic>?)
-          ?.map((e) => Breed.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BreedModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$CatToJson(Cat instance) => <String, dynamic>{
+Map<String, dynamic> _$CatToJson(CatModel instance) => <String, dynamic>{
       'id': instance.id,
       'width': instance.width,
       'height': instance.height,
@@ -24,7 +24,7 @@ Map<String, dynamic> _$CatToJson(Cat instance) => <String, dynamic>{
       'breeds': instance.breeds,
     };
 
-Breed _$BreedFromJson(Map<String, dynamic> json) => Breed(
+BreedModel _$BreedFromJson(Map<String, dynamic> json) => BreedModel(
       json['cfaUrl'] as String?,
       json['vetstreetUrl'] as String?,
       json['vcahospitalsUrl'] as String?,
@@ -55,7 +55,7 @@ Breed _$BreedFromJson(Map<String, dynamic> json) => Breed(
       json['referenceImageId'] as String?,
       weight: json['weight'] == null
           ? null
-          : Weight.fromJson(json['weight'] as Map<String, dynamic>),
+          : WeightModel.fromJson(json['weight'] as Map<String, dynamic>),
       id: json['id'] as String?,
       name: json['name'] as String?,
       temperament: json['temperament'] as String?,
@@ -66,7 +66,7 @@ Breed _$BreedFromJson(Map<String, dynamic> json) => Breed(
       wikipediaUrl: json['wikipediaUrl'] as String?,
     );
 
-Map<String, dynamic> _$BreedToJson(Breed instance) => <String, dynamic>{
+Map<String, dynamic> _$BreedToJson(BreedModel instance) => <String, dynamic>{
       'weight': instance.weight,
       'id': instance.id,
       'name': instance.name,
@@ -106,12 +106,12 @@ Map<String, dynamic> _$BreedToJson(Breed instance) => <String, dynamic>{
       'referenceImageId': instance.referenceImageId,
     };
 
-Weight _$WeightFromJson(Map<String, dynamic> json) => Weight(
+WeightModel _$WeightFromJson(Map<String, dynamic> json) => WeightModel(
       imperial: json['imperial'] as String? ?? "",
       metric: json['metric'] as String? ?? "",
     );
 
-Map<String, dynamic> _$WeightToJson(Weight instance) => <String, dynamic>{
+Map<String, dynamic> _$WeightToJson(WeightModel instance) => <String, dynamic>{
       'imperial': instance.imperial,
       'metric': instance.metric,
     };
