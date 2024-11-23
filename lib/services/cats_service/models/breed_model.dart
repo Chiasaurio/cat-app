@@ -4,9 +4,9 @@ part of '_lib.dart';
 class BreedModel {
   final WeightModel? weight;
   final String? id;
-  final String? name;
+  final String name;
   final String? temperament;
-  final String? origin;
+  final String origin;
   final String? countryCodes;
   final String? countryCode;
   final String? lifeSpan;
@@ -14,10 +14,10 @@ class BreedModel {
   final String? cfaUrl;
   final String? vetstreetUrl;
   final String? vcahospitalsUrl;
-  final String? description;
+  final String description;
   final int? indoor;
   final int? lap;
-  final String? altNames;
+  final String altNames;
   final int? adaptability;
   final int? affectionLevel;
   final int? childFriendly;
@@ -25,7 +25,7 @@ class BreedModel {
   final int? energyLevel;
   final int? grooming;
   final int? healthIssues;
-  final int? intelligence;
+  final int intelligence;
   final int? sheddingLevel;
   final int? socialNeeds;
   final int? strangerFriendly;
@@ -39,14 +39,14 @@ class BreedModel {
   final int? shortLegs;
   final int? hypoallergenic;
   final String? referenceImageId;
-  BreedModel(
+  BreedModel({
     this.cfaUrl,
     this.vetstreetUrl,
     this.vcahospitalsUrl,
-    this.description,
+    this.description = "",
     this.indoor,
     this.lap,
-    this.altNames,
+    this.altNames = "",
     this.adaptability,
     this.affectionLevel,
     this.childFriendly,
@@ -54,7 +54,7 @@ class BreedModel {
     this.energyLevel,
     this.grooming,
     this.healthIssues,
-    this.intelligence,
+    this.intelligence = 0,
     this.sheddingLevel,
     this.socialNeeds,
     this.strangerFriendly,
@@ -67,12 +67,12 @@ class BreedModel {
     this.suppressedTail,
     this.shortLegs,
     this.hypoallergenic,
-    this.referenceImageId, {
+    this.referenceImageId,
     this.weight,
     this.id,
-    this.name,
+    this.name = "",
+    this.origin = "",
     this.temperament,
-    this.origin,
     this.countryCodes,
     this.countryCode,
     this.lifeSpan,
@@ -80,7 +80,7 @@ class BreedModel {
   });
 
   factory BreedModel.fromJson(Map<String, dynamic> json) =>
-      _$BreedFromJson(json);
+      _$BreedModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$BreedToJson(this);
+  Map<String, dynamic> toJson() => _$BreedModelToJson(this);
 }

@@ -6,17 +6,18 @@ part of '_lib.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CatModel _$CatFromJson(Map<String, dynamic> json) => CatModel(
+CatModel _$CatModelFromJson(Map<String, dynamic> json) => CatModel(
       id: json['id'] as String?,
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-      url: json['url'] as String?,
+      width: (json['width'] as num?)?.toInt() ?? 0,
+      height: (json['height'] as num?)?.toInt() ?? 0,
+      url: json['url'] as String? ?? "",
       breeds: (json['breeds'] as List<dynamic>?)
-          ?.map((e) => BreedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => BreedModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
-Map<String, dynamic> _$CatToJson(CatModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CatModelToJson(CatModel instance) => <String, dynamic>{
       'id': instance.id,
       'width': instance.width,
       'height': instance.height,
@@ -24,49 +25,50 @@ Map<String, dynamic> _$CatToJson(CatModel instance) => <String, dynamic>{
       'breeds': instance.breeds,
     };
 
-BreedModel _$BreedFromJson(Map<String, dynamic> json) => BreedModel(
-      json['cfaUrl'] as String?,
-      json['vetstreetUrl'] as String?,
-      json['vcahospitalsUrl'] as String?,
-      json['description'] as String?,
-      (json['indoor'] as num?)?.toInt(),
-      (json['lap'] as num?)?.toInt(),
-      json['altNames'] as String?,
-      (json['adaptability'] as num?)?.toInt(),
-      (json['affectionLevel'] as num?)?.toInt(),
-      (json['childFriendly'] as num?)?.toInt(),
-      (json['dogFriendly'] as num?)?.toInt(),
-      (json['energyLevel'] as num?)?.toInt(),
-      (json['grooming'] as num?)?.toInt(),
-      (json['healthIssues'] as num?)?.toInt(),
-      (json['intelligence'] as num?)?.toInt(),
-      (json['sheddingLevel'] as num?)?.toInt(),
-      (json['socialNeeds'] as num?)?.toInt(),
-      (json['strangerFriendly'] as num?)?.toInt(),
-      (json['vocalisation'] as num?)?.toInt(),
-      (json['experimental'] as num?)?.toInt(),
-      (json['hairless'] as num?)?.toInt(),
-      (json['natural'] as num?)?.toInt(),
-      (json['rare'] as num?)?.toInt(),
-      (json['rex'] as num?)?.toInt(),
-      (json['suppressedTail'] as num?)?.toInt(),
-      (json['shortLegs'] as num?)?.toInt(),
-      (json['hypoallergenic'] as num?)?.toInt(),
-      json['referenceImageId'] as String?,
+BreedModel _$BreedModelFromJson(Map<String, dynamic> json) => BreedModel(
+      cfaUrl: json['cfaUrl'] as String?,
+      vetstreetUrl: json['vetstreetUrl'] as String?,
+      vcahospitalsUrl: json['vcahospitalsUrl'] as String?,
+      description: json['description'] as String? ?? "",
+      indoor: (json['indoor'] as num?)?.toInt(),
+      lap: (json['lap'] as num?)?.toInt(),
+      altNames: json['altNames'] as String? ?? "",
+      adaptability: (json['adaptability'] as num?)?.toInt(),
+      affectionLevel: (json['affectionLevel'] as num?)?.toInt(),
+      childFriendly: (json['childFriendly'] as num?)?.toInt(),
+      dogFriendly: (json['dogFriendly'] as num?)?.toInt(),
+      energyLevel: (json['energyLevel'] as num?)?.toInt(),
+      grooming: (json['grooming'] as num?)?.toInt(),
+      healthIssues: (json['healthIssues'] as num?)?.toInt(),
+      intelligence: (json['intelligence'] as num?)?.toInt() ?? 0,
+      sheddingLevel: (json['sheddingLevel'] as num?)?.toInt(),
+      socialNeeds: (json['socialNeeds'] as num?)?.toInt(),
+      strangerFriendly: (json['strangerFriendly'] as num?)?.toInt(),
+      vocalisation: (json['vocalisation'] as num?)?.toInt(),
+      experimental: (json['experimental'] as num?)?.toInt(),
+      hairless: (json['hairless'] as num?)?.toInt(),
+      natural: (json['natural'] as num?)?.toInt(),
+      rare: (json['rare'] as num?)?.toInt(),
+      rex: (json['rex'] as num?)?.toInt(),
+      suppressedTail: (json['suppressedTail'] as num?)?.toInt(),
+      shortLegs: (json['shortLegs'] as num?)?.toInt(),
+      hypoallergenic: (json['hypoallergenic'] as num?)?.toInt(),
+      referenceImageId: json['referenceImageId'] as String?,
       weight: json['weight'] == null
           ? null
           : WeightModel.fromJson(json['weight'] as Map<String, dynamic>),
       id: json['id'] as String?,
-      name: json['name'] as String?,
+      name: json['name'] as String? ?? "",
+      origin: json['origin'] as String? ?? "",
       temperament: json['temperament'] as String?,
-      origin: json['origin'] as String?,
       countryCodes: json['countryCodes'] as String?,
       countryCode: json['countryCode'] as String?,
       lifeSpan: json['lifeSpan'] as String?,
       wikipediaUrl: json['wikipediaUrl'] as String?,
     );
 
-Map<String, dynamic> _$BreedToJson(BreedModel instance) => <String, dynamic>{
+Map<String, dynamic> _$BreedModelToJson(BreedModel instance) =>
+    <String, dynamic>{
       'weight': instance.weight,
       'id': instance.id,
       'name': instance.name,
@@ -106,12 +108,13 @@ Map<String, dynamic> _$BreedToJson(BreedModel instance) => <String, dynamic>{
       'referenceImageId': instance.referenceImageId,
     };
 
-WeightModel _$WeightFromJson(Map<String, dynamic> json) => WeightModel(
+WeightModel _$WeightModelFromJson(Map<String, dynamic> json) => WeightModel(
       imperial: json['imperial'] as String? ?? "",
       metric: json['metric'] as String? ?? "",
     );
 
-Map<String, dynamic> _$WeightToJson(WeightModel instance) => <String, dynamic>{
+Map<String, dynamic> _$WeightModelToJson(WeightModel instance) =>
+    <String, dynamic>{
       'imperial': instance.imperial,
       'metric': instance.metric,
     };

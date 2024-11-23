@@ -11,7 +11,7 @@ class WeightModel {
   });
 
   factory WeightModel.fromJson(Map<String, dynamic> json) =>
-      _$WeightFromJson(json);
+      _$WeightModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WeightToJson(this);
+  Map<String, dynamic> toJson() => _$WeightModelToJson(this);
 }
