@@ -4,14 +4,24 @@ import 'package:cat_app/services/cats_service/models/_lib.dart';
 import 'package:http/http.dart' as http;
 
 class CatsService {
-  static Future<List<CatModel>> get({int limit = 10}) async {
+  static Future<List<CatModel>> get({String? search, int? limit = 20}) async {
+    Map<String, dynamic> params = {
+      "limit": limit,
+      "has_breeds": 1,
+    };
+
+    if (search != null && search.isNotEmpty) {
+      params["breed_ids"] = search;
+    }
     var url = Uri.https(
       'api.thecatapi.com',
       '/v1/images/search',
-      {
-        "limit": limit,
-        "has_breeds": 1,
-      }.map((key, value) => MapEntry(key, value.toString())),
+      params.map(
+        (key, value) => MapEntry(
+          key,
+          value.toString(),
+        ),
+      ),
     );
     final headers = {
       'x-api-key':

@@ -8,7 +8,19 @@ class MainPageCatsModule extends StatefulWidget {
 }
 
 class _MainPageCatsModuleState extends State<MainPageCatsModule> {
-  final Debouncer _debouncer = Debouncer(milliseconds: 1500);
+  final Debouncer _debouncer = Debouncer(milliseconds: 1000);
+
+  @override
+  void initState() {
+    super.initState();
+    MainPageCatsController.loadData();
+  }
+
+  @override
+  void dispose() {
+    CatsStream.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +38,8 @@ class _MainPageCatsModuleState extends State<MainPageCatsModule> {
   }
 
   _builder() {
-    return FutureBuilder<List<CatModel>>(
-        future: CatsService.get(),
+    return StreamBuilder<List<CatModel>>(
+        stream: CatsStream.catsStream,
         builder: (context, snapshot) {
           if (snapshot.data == null) return _loading();
 
@@ -46,7 +58,7 @@ class _MainPageCatsModuleState extends State<MainPageCatsModule> {
             EdgeInsets.symmetric(horizontal: 16.0)),
         onChanged: (value) {
           _debouncer.run(() async {
-            // _loadSkus(value);
+            MainPageCatsController.updateSearch(value);
           });
         },
         leading: const Icon(Icons.search),
@@ -56,7 +68,7 @@ class _MainPageCatsModuleState extends State<MainPageCatsModule> {
     });
   }
 
-  CustomScrollView _listCats(AsyncSnapshot<List<CatModel>> snapshot) {
+  Widget _listCats(AsyncSnapshot<List<CatModel>> snapshot) {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: <Widget>[
