@@ -1,4 +1,4 @@
-part of '_lib.dart';
+part of '../_lib.dart';
 
 class DescriptionPageCatsModule extends StatelessWidget {
   final CatModel cat;

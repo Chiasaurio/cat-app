@@ -5,6 +5,5 @@
         <!-- <item name="android:windowSplashScreenAnimatedIcon">@drawable/launch_background</item> -->
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/icon</item>
         <item name="android:windowSplashScreenBrandingImage">@drawable/branding_icon</item>
-        <item name="android:windowSplashScreenAnimationDuration">3000</item>
     </style>
 </resources>
